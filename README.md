@@ -1,5 +1,5 @@
 # Flight-Price-Prediction-Flask
-Flight Price Prediction Flask App using numpy and sklearn.
+Flight Price Prediction Flask App using numpy, seaborn, pandas and sklearn.
 
 In terminal, run ~<code>flask run</code> to start app. 
 
