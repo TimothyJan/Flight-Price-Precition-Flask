@@ -5,4 +5,6 @@ In terminal, run ~<code>flask run</code> to start app.
 
 Dataset from <a href="https://www.kaggle.com/datasets/nikhilmittal/flight-fare-prediction-mh">Flight Fare Prediction MH</a>
 
+<img src="ScreenShot.png" alt="Home Page" width="200%" height="200%">
+
 <a href="https://machinelearningprojects.net/flight-price-prediction/#Download_Source_code_and_Data_for_Flight_Price_Prediction%E2%80%A6">Process followed</a> and <a href="https://github.com/sharmaji27/Flight-Price-Prediction">Github</a>
