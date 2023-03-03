@@ -25,8 +25,8 @@ def predict():
         Departure_min = pd.to_datetime(dep_time,format="%Y-%m-%dT%H:%M").minute
 
         arrival_time = request.form['Arrival_Time']
-        Arrival_hour =  pd.to_datetime(arrival_time,format="%Y-%m-%dT%H:%M").hour
-        Arrival_min =  pd.to_datetime(arrival_time,format="%Y-%m-%dT%H:%M").minute
+        Arrival_hour = pd.to_datetime(arrival_time,format="%Y-%m-%dT%H:%M").hour
+        Arrival_min = pd.to_datetime(arrival_time,format="%Y-%m-%dT%H:%M").minute
 
         Total_stops = int(request.form['Stopage'])
 
@@ -283,18 +283,9 @@ def predict():
 
         output = round(output[0]*0.012, 2)
 
-        # For repopulating Flask Form after submission
-        Dep_Time = request.form.get("Dep_Time")
-        Arrival_Time = request.form.get("Arrival_Time")
-        Stopage = request.form.get("Stopage")
-        Airline = request.form.get("Airline")
-        Source = request.form.get("Source")
-        Destination = request.form.get("Destination")
+        print('You will have to pay approx {} US Dollars'.format(output))
 
-        print('You will have to Pay approx {} US Dollars'.format(output))
-
-        return render_template('home.html', prediction = 'You will have to Pay approx {} US Dollars'.format(output))
-
+        return render_template('home.html', prediction = 'You will have to pay approx {} US Dollars'.format(output))
 
 if __name__ == '__main__':
 	app.run(debug=True)

@@ -76,46 +76,46 @@
 				</div>
 			</div>
 
-				<div class="row my-3">
+			<div class="row my-3">
 
-					<div class="col-sm-6">
-						<div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
-							<div class="card-body">
-								<h5 class="card-title">Stopage</h5>
-								<select name="Stopage" id="Stopage" required="required">
-									<option value="0">Non-Stop</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6">
-						<div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
-							<div class="card-body">
-								<h5 class="card-title">Which Airline you want to travel?</h5>
-								<select name="Airline" id="Airline" required="required">
-									<option value="Jet Airways">Jet Airways</option>
-									<option value="IndiGo">IndiGo</option>
-									<option value="Air India">Air India</option>
-									<option value="Multiple carriers">Multiple carriers</option>
-									<option value="SpiceJet">SpiceJet</option>
-									<option value="Vistara">Vistara</option>
-									<option value="Air Asia">Air Asia</option>
-									<option value="GoAir">GoAir</option>
-									<option value="Multiple carriers Premium economy">Multiple carriers Premium economy
-									</option>
-									<option value="Jet Airways Business">Jet Airways Business</option>
-									<option value="Vistara Premium economy">Vistara Premium economy</option>
-									<option value="Trujet">Trujet</option>
-								</select>
-							</div>
+				<div class="col-sm-6">
+					<div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
+						<div class="card-body">
+							<h5 class="card-title">Stopage</h5>
+							<select name="Stopage" id="Stopage" required="required">
+								<option value="0">Non-Stop</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
 						</div>
 					</div>
 				</div>
+
+				<div class="col-sm-6">
+					<div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
+						<div class="card-body">
+							<h5 class="card-title">Which Airline you want to travel?</h5>
+							<select name="Airline" id="Airline" required="required">
+								<option value="Jet Airways">Jet Airways</option>
+								<option value="IndiGo">IndiGo</option>
+								<option value="Air India">Air India</option>
+								<option value="Multiple carriers">Multiple carriers</option>
+								<option value="SpiceJet">SpiceJet</option>
+								<option value="Vistara">Vistara</option>
+								<option value="Air Asia">Air Asia</option>
+								<option value="GoAir">GoAir</option>
+								<option value="Multiple carriers Premium economy">Multiple carriers Premium economy
+								</option>
+								<option value="Jet Airways Business">Jet Airways Business</option>
+								<option value="Vistara Premium economy">Vistara Premium economy</option>
+								<option value="Trujet">Trujet</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
 
 				<div style='text-align:center'>
 						<button type="submit" value='Submit' class="btn btn-primary px-5" style="font-size: 25px;">Submit</button>
@@ -137,8 +137,8 @@
 	</div>
 
 	<!-- JavaScript -->
-	<script src="https://code.jquery.com/jquery-3.5.1.js"
-		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -146,34 +146,6 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 		crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		$(document).on('submit','#input-form',function(e)
-		{
-			console.log('Hello');
-			e.preventDefault();
-			$.ajax({
-				type:'POST',
-				url:'/predict',
-				data:{
-					Dep_Time:$("#Dep_Time").val(),
-					Arrival_Time:$("#Arrival_Time").val(),
-					Source:$("#Source").val(),
-					Destination:$("#Destination").val(),
-					Stopage:$("#Stopage").val(),
-					Airline:$("#Airline").val(),
-					prediction:$('#prediction').val()
-				},
-				success:function()
-				{
-					alert('saved');
-				},
-				error:function(xhr, ajaxOptions, thrownError)
-        {
-					alert(xhr.responseText);
-        }
-			})
-		});
-	</script>
 
 </body>
 
