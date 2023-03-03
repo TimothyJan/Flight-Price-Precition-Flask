@@ -12,7 +12,7 @@ app = Flask(__name__)
 def home():
 	return render_template('home.html')
 
-@app.route('/predict',methods=['GET','POST'])
+@app.route('/predict', methods=['GET','POST'])
 @cross_origin()
 def predict():
     if request.method=='POST':
@@ -28,12 +28,12 @@ def predict():
         Arrival_hour =  pd.to_datetime(arrival_time,format="%Y-%m-%dT%H:%M").hour
         Arrival_min =  pd.to_datetime(arrival_time,format="%Y-%m-%dT%H:%M").minute
 
-        Total_stops = int(request.form['stops'])
+        Total_stops = int(request.form['Stopage'])
 
         dur_hour = abs(Arrival_hour-Departure_hour)
         dur_min = abs(Arrival_min-Departure_min)
 
-        airline=request.form['airline']
+        airline=request.form['Airline']
         if(airline=='Jet Airways'):
             Jet_Airways = 1
             IndiGo = 0
@@ -189,7 +189,7 @@ def predict():
             Jet_Airways_Business = 0
             Vistara_Premium_economy = 0
             Trujet = 0
-        
+
         Source = request.form["Source"]
         if (Source == 'Delhi'):
             s_Delhi = 1
@@ -220,7 +220,6 @@ def predict():
             s_Kolkata = 0
             s_Mumbai = 0
             s_Chennai = 0
-
 
         Destination = request.form["Destination"]
         if (Destination == 'Cochin'):
@@ -283,7 +282,18 @@ def predict():
             d_Kolkata]])
 
         output = round(output[0]*0.012, 2)
-        return render_template('home.html',predictions='You will have to Pay approx {} US Dollars'.format(output))
+
+        # For repopulating Flask Form after submission
+        Dep_Time = request.form.get("Dep_Time")
+        Arrival_Time = request.form.get("Arrival_Time")
+        Stopage = request.form.get("Stopage")
+        Airline = request.form.get("Airline")
+        Source = request.form.get("Source")
+        Destination = request.form.get("Destination")
+
+        print('You will have to Pay approx {} US Dollars'.format(output))
+
+        return render_template('home.html', prediction = 'You will have to Pay approx {} US Dollars'.format(output))
 
 
 if __name__ == '__main__':
